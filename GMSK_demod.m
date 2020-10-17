@@ -54,11 +54,11 @@ for j = 1:16
     % signal_recv_dif_ang(signal_recv_dif_ang >= 2*pi) = signal_recv_dif_ang(signal_recv_dif_ang >= 2*pi) - 2*pi;
     % signal_recv_dif_ang(signal_recv_dif_ang <= -2*pi) = signal_recv_dif_ang(signal_recv_dif_ang <= -2*pi) + 2*pi;
 
-    figure
-    plot(g_path_dif_ang);
-    hold on;
-    plot(signal_recv_dif_ang);
-    hold off;
+    % figure
+    % plot(g_path_dif_ang);
+    % hold on;
+    % plot(signal_recv_dif_ang);
+    % hold off;
 
     g_path_dif_tendency = zeros(1,63);
     signal_recv_dif_tendency = zeros(1,63);
@@ -82,7 +82,7 @@ for j = 1:16
     % end
 
     % tendency(j) = sum((g_path_dif_ang - signal_recv_dif_ang).^2)
-    tendency(j) = (sum(signal_recv_dif_tendency) - sum(g_path_dif_tendency)).^2
+    tendency(j) = (sum(signal_recv_dif_tendency) - sum(g_path_dif_tendency)).^2;
     if tendency(j) < tendency_min
         tendency_min = tendency(j);
         decode_out(i) = (path(j,3) + 1)/2;
